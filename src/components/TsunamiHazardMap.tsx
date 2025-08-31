@@ -21,8 +21,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 // ここに自分のトークン（または環境変数の読み込み）
 mapboxgl.accessToken = import.meta?.env?.VITE_MAPBOX_TOKEN || "YOUR_MAPBOX_ACCESS_TOKEN";
 
-console.log("token", import.meta.env.VITE_MAPBOX_TOKEN);
-
 export default function TsunamiHazardMap()
 {
 	const mapRef = useRef<mapboxgl.Map | null>(null);
