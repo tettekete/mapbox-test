@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MiniMap from "./components/MiniMap";
 import TsunamiHazardMap from "./components/TsunamiHazardMap";
 import MultiLayerMap from "./components/MultiLayerMap";
