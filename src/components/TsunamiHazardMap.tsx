@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
+	// 地名の日本語化モジュール。サポートしているのは Mapbox v8 style ベースのマップのみ
+	// → https://www.npmjs.com/package/@mapbox/mapbox-gl-language#supported-styles
 import "mapbox-gl/dist/mapbox-gl.css";
-import { restoreShuffledToken } from '..//lib/obfuscation';
+import { restoreShuffledToken } from '../lib/obfuscation';
 
 
 /**
@@ -32,7 +34,7 @@ export default function TsunamiHazardMap()
 
 	// UI 状態
 	const [opacity, setOpacity] = useState(0.7);
-	const [styleId, setStyleId] = useState("mapbox://styles/mapbox/standard");
+	const [styleId, setStyleId] = useState("mapbox://styles/mapbox/streets-v11");
 
 
 	useEffect(() =>
@@ -149,7 +151,7 @@ export default function TsunamiHazardMap()
 	);
 
 	return (
-	<div className="relative h-screen w-full">
+	<div className="relative h-full w-full">
 		{/* 地図本体 */}
 		<div ref={containerRef} style={{ position: 'absolute', inset: 0, outline: '2px solid red' }} />
 

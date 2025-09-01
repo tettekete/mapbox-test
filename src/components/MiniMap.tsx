@@ -45,5 +45,5 @@ export default function MiniMap()
 	}, []);
 
 	// 重要: ここで高さを明示
-	return <div ref={ref} style={{ width: "100%", height: "80vh" }} />;
+	return <div ref={ref} style={{ width: "100%", height: "100%" }} />;
 }
