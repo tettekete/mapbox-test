@@ -173,7 +173,7 @@ export default function MultiLayerMap()
 	}, [layers]);
 
 	return (
-		<div className="fixed inset-0">
+		<div className="w-full h-full">
 			<div ref={containerRef} className="w-full h-full" />
 
 			{/* UI パネル */}

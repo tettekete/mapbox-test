@@ -151,7 +151,7 @@ export default function TsunamiHazardMap()
 	);
 
 	return (
-	<div className="relative h-screen w-full">
+	<div className="relative h-full w-full">
 		{/* 地図本体 */}
 		<div ref={containerRef} style={{ position: 'absolute', inset: 0, outline: '2px solid red' }} />
 
