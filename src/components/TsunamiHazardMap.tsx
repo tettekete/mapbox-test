@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import "mapbox-gl/dist/mapbox-gl.css";
+import { restoreShuffledToken } from '..//lib/obfuscation';
 
 
 /**
@@ -18,8 +19,11 @@ import "mapbox-gl/dist/mapbox-gl.css";
  * - 出典表記："ハザードマップポータルサイト" へのリンクをアプリ上の帰属表示に追加してください
  */
 
-// ここに自分のトークン（または環境変数の読み込み）
-mapboxgl.accessToken = import.meta?.env?.VITE_MAPBOX_TOKEN || "YOUR_MAPBOX_ACCESS_TOKEN";
+// ボット対策の難読化済みのトークンを元に戻します
+mapboxgl.accessToken = restoreShuffledToken(
+	import.meta.env.VITE_MAPBOX_TOKEN_SHUF || "YOUR_MAPBOX_ACCESS_TOKEN",
+	'map+box@test'.replace( /\W/g,'' )
+);
 
 export default function TsunamiHazardMap()
 {

@@ -5,6 +5,7 @@
 import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { restoreShuffledToken } from '..//lib/obfuscation';
 
 export default function MiniMap()
 {
@@ -12,8 +13,10 @@ export default function MiniMap()
 
 	useEffect(() =>
 	{
-		const token = import.meta.env.VITE_MAPBOX_TOKEN as string | undefined;
-		if (!token) throw new Error("VITE_MAPBOX_TOKEN is missing");
+		const token = restoreShuffledToken(
+			import.meta.env.VITE_MAPBOX_TOKEN_SHUF || "YOUR_MAPBOX_ACCESS_TOKEN",
+			'map+box@test'.replace( /\W/g,'' )
+		);
 
 		mapboxgl.accessToken = token;
 
