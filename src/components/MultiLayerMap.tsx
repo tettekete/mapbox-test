@@ -133,9 +133,9 @@ export default function MultiLayerMap()
 			}
 
 			// 3 つの GeoJSON を事前ロード
-			await addGeoLayer("dia", "/dia.json", "#3399ff");
-			await addGeoLayer("heart", "/heart.json", "#ff66aa");
-			await addGeoLayer("star", "/star.json", "#ff9933");
+			await addGeoLayer("dia", "./dia.json", "#3399ff");
+			await addGeoLayer("heart", "./heart.json", "#ff66aa");
+			await addGeoLayer("star", "./star.json", "#ff9933");
 		});
 
 		return () =>
