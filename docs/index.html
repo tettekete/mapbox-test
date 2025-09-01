@@ -7,10 +7,8 @@
 <body>
 <div style="width: 100%;height: 100%;">
 	<div>
-		<form>
-		<input type="password" id="pw" value="">
+		<input type="password" id="pw">
 		<button type="button" id="go" >Submit</button>
-		</form>
 	</div>
 </div>
 
@@ -25,7 +23,7 @@ function buildRedirectURL( pw )
 	
 	
 	let path = url.pathname;
-	const splitted = path.split(/\/+/);
+	const splitted = path.split(/\/+/).filter( item => item.length );
 	if( ! path.endsWith( '/' ) ){ splitted.pop(); }	// 末尾が / じゃない場合はファイルパス
 	
 	const sesame = Number.parseInt( Number.parseInt( pw ) * Math.PI * 1e12 );
@@ -50,6 +48,13 @@ function redirect()
 }
 
 document.getElementById( 'go' ).addEventListener( 'click', redirect );
+document.getElementById( 'pw' ).addEventListener( 'keydown', ( e ) =>
+{
+	if( e.key === 'Enter' )
+	{
+		redirect();
+	}
+});
 
 </script>
 </body>
