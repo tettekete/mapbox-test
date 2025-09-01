@@ -14,6 +14,10 @@ mapboxgl.accessToken = restoreShuffledToken(
 type ValidLayerID = 'tsunami' | 'dia' |'heart' | 'star';
 type LayersVisibilityT = {[key in ValidLayerID]: boolean }
 
+function makeGeoJsonUrl( geoJson:string ): string
+{
+	return import.meta.env.BASE_URL + geoJson
+}
 
 export default function MultiLayerMap()
 {
@@ -133,9 +137,9 @@ export default function MultiLayerMap()
 			}
 
 			// 3 つの GeoJSON を事前ロード
-			await addGeoLayer("dia", "./dia.json", "#3399ff");
-			await addGeoLayer("heart", "./heart.json", "#ff66aa");
-			await addGeoLayer("star", "./star.json", "#ff9933");
+			await addGeoLayer("dia", makeGeoJsonUrl("dia.json"), "#3399ff");
+			await addGeoLayer("heart", makeGeoJsonUrl("heart.json"), "#ff66aa");
+			await addGeoLayer("star", makeGeoJsonUrl("star.json"), "#ff9933");
 		});
 
 		return () =>
