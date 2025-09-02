@@ -1,4 +1,4 @@
-# Mapbox の初期調査 && 習作のためのリポジトリ
+# Mapbox の使い方確認のためのリポジトリ
 
 ```sh
 $ git clone https://github.com/tettekete/mapbox-test.git
